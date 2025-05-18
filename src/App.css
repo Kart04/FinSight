@@ -1,3 +1,4 @@
+/* Default React styles */
 .App {
   text-align: center;
 }
@@ -35,4 +36,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* === FinSight Sidebar Styles === */
+.sidebar-menu-item {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.06);
+  color: #e3f7ff;
+  padding: 1rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.07rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-menu-item:hover {
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  color: #fff;
+}
+
+.sidebar-menu-item.active {
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,198,255,0.09);
 }
