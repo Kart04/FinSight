@@ -126,4 +126,6 @@ export default function Login() {
       </form>
     </div>
   );
+  //would need to get the data from up to process with the database and check if the data provided is correct or not?
+  
 }

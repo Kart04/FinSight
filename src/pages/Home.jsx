@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <h2>Home Page</h2>
-      <Link to="/login">Go to Login</Link>
+      <Link to="/login">SUCK MY DICK</Link>
     </div>
   );
 }

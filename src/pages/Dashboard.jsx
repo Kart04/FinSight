@@ -112,15 +112,25 @@ export default function Dashboard() {
       <div style={sidebarStyle}>
         <div style={sidebarTitle}>FinSight</div>
         <NavLink
+          to="/Dashboard"
+          className={({ isActive }) =>
+            "sidebar-menu-item" + (isActive ? " active" : "")
+          }
+        >
+          Introduction
+        </NavLink>
+        <NavLink
           to="/chart"
           className={({ isActive }) =>
             "sidebar-menu-item" + (isActive ? " active" : "")
           }
         >
-          Chart
+          Charts
         </NavLink>
+        
         {/* Add more NavLinks for other menu items as needed */}
       </div>
+            
       {/* Main Content */}
       <div style={mainContent}>
         <div style={glassCard}>
