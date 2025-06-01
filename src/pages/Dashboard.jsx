@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate, NavLink } from "react-router-dom";
-import "../App.css"; // Make sure this imports your sidebar-menu-item CSS
+import "../App.css"; 
 //import "./App.css";
 
 
