@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Chart from './pages/Chart';
+import SignupForm from './components/SignupForm';
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignupForm />} />
           <Route
             path="/dashboard"
             element={

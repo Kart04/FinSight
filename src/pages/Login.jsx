@@ -5,6 +5,9 @@ import { useAuth } from "../contexts/AuthContext";
 const bgGradient = {
   minHeight: "100vh",
   minWidth: "100vw",
+  width: "100vw",
+  height: "100vh",
+  boxSizing: "border-box",
   background: "linear-gradient(135deg, #0f2027 0%, #2c5364 50%, #00c6ff 100%)",
   display: "flex",
   alignItems: "center",
@@ -69,14 +72,18 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError("Please fill in both fields.");
-    } else {
-      setError("");
-      login(email);
+      return;
+    }
+    setError("");
+    const success = await login(email, password);
+    if (success) {
       navigate("/dashboard");
+    } else {
+      setError("Invalid email or password.");
     }
   };
 
@@ -121,11 +128,9 @@ export default function Login() {
         
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <span style={linkStyle}>Forgot password?</span>
-          <span style={linkStyle}>Sign up</span>
+          <span style={linkStyle} onClick={() => navigate("/signup")}>Sign up</span>
         </div>
       </form>
     </div>
   );
-  //would need to get the data from up to process with the database and check if the data provided is correct or not?
-  
 }
