@@ -22,7 +22,7 @@ app.get("/api/stock/:symbol", async (req, res) => {
 });
 
 // The "catchall" handler: for any request not handled above, send back React's index.html
-app.get("*", (req, res) => {
+app.get("/{*any}", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
