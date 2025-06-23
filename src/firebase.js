@@ -1,39 +1,28 @@
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCfl2j1bRC6Hr3QIdhpiptUQSyX5xU-Ehg",
-//   authDomain: "finsight-4c2d6.firebaseapp.com",
-//   projectId: "finsight-4c2d6",
-//   storageBucket: "finsight-4c2d6.firebasestorage.app",
-//   messagingSenderId: "1090241589295",
-//   appId: "1:1090241589295:web:8cfcd86c5c489a0033d6da",
-//   measurementId: "G-6XD349BTWL"  
-// };
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-
+// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+// Remove the next line if you don't need analytics
+import { getAnalytics } from "firebase/analytics";
 
+// Your web app's Firebase configuration
+// Replace with your config from Firebase Console
 const firebaseConfig = {
-  apiKey: "AIzaSyCfl2j1bRC6Hr3QIdhpiptUQSyX5xU-Ehg",
-  authDomain: "finsight-4c2d6.firebaseapp.com",
-  projectId: "finsight-4c2d6",
-  storageBucket: "finsight-4c2d6.firebasestorage.app",
-  messagingSenderId: "1090241589295",
-  appId: "1:1090241589295:web:8cfcd86c5c489a0033d6da",
-  measurementId: "G-6XD349BTWL"
+  apiKey: "AIzaSyC7DFk4i5nAyyL-YrftLjF52DgARtyE27s",
+  authDomain: "finsight-67b1e.firebaseapp.com",
+  projectId: "finsight-67b1e",
+  storageBucket: "finsight-67b1e.firebasestorage.app",
+  messagingSenderId: "254541085370",
+  appId: "1:254541085370:web:b403037c77f115303a6083",
+  measurementId: "G-TTX1NWSQNM"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Export auth and db for use in your app
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+// Initialize Analytics only if you need it
+export const analytics = getAnalytics(app);

@@ -78,12 +78,12 @@ export default function Login() {
       setError("Please fill in both fields.");
       return;
     }
-    setError("");
-    const success = await login(email, password);
-    if (success) {
+    try {
+      setError("");
+      await login(email, password);
       navigate("/dashboard");
-    } else {
-      setError("Invalid email or password.");
+    } catch (err) {
+      setError(err.message || "Invalid email or password.");
     }
   };
 

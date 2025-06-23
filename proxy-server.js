@@ -1,10 +1,15 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const path = require("path"); // Add this line
 
 const app = express();
 app.use(cors());
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "build")));
+
+// Your API route
 app.get("/api/stock/:symbol", async (req, res) => {
   try {
     const { symbol } = req.params;
@@ -16,7 +21,12 @@ app.get("/api/stock/:symbol", async (req, res) => {
   }
 });
 
-const PORT = 4000;
+// The "catchall" handler: for any request not handled above, send back React's index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
 });
